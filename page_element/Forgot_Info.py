@@ -7,9 +7,9 @@ class ForgotInfoElements:
     TXTBOX_ZIPCODE = "//input[@id='address.zipCode']"
     TXTBOX_SSN = "//input[@id='ssn']"
     BTN_FINDINFO = "//input[@type ='submit' and @value='Find My Login Info']"
-    LINK_FORGOTINFO = "//a[text()='Forgot login info?']"
-    TXT_USERNAMEPW = "//div[@id='rightPanel']//p"
-     # Error msg elements
+    TXT_USERNAMEPW = "//div[@id='rightPanel']//p[2]"
+    
+class ForgotPageErrorMessage:
     TXT_FIRSTNAME_ERROR = "//span[@id='firstName.errors']"
     TXT_LASTNAME_ERROR = "//span[@id='lastName.errors']"
     TXT_STREET_ERROR = "//span[@id='address.street.errors']"

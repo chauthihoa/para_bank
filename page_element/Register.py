@@ -1,5 +1,5 @@
 class RegisterPageElements:
-    LINK_REGISTER = "//a[text()='Register']"
+    # LINK_REGISTER = "//a[text()='Register']"
     TXTBOX_FIRSTNAME = "//input[@id='customer.firstName']"
     TXTBOX_LASTNAME = "//input[@id='customer.lastName']"
     TXTBOX_ADDRESS_STREET = "//input[@id='customer.address.street']"
@@ -17,9 +17,9 @@ class RegisterPageElements:
     TXTBOX_USERNAMELOGIN = "//input[@name='username']"
     TXTBOX_PASSWORDLOGIN = "//input[@name='password']"
     BTN_LOGIN = "//input[@type ='submit' and @value='Log In']"
-    LINK_LOGOUT = "//a[text()='Log Out']"
     TXT_WELCOMELOGIN = "//p[@class='smallText']"
-    # Error msg elements
+
+class RegisterPageErrorMessage:
     TXT_FIRSTNAME_ERROR = "//span[@id='customer.firstName.errors']"
     TXT_LASTNAME_ERROR = "//span[@id='customer.lastName.errors']"
     TXT_STREET_ERROR = "//span[@id='customer.address.street.errors']"
@@ -29,4 +29,4 @@ class RegisterPageElements:
     TXT_SSN_ERROR = "//span[@id='customer.ssn.errors']"
     TXT_USERNAME_ERROR = "//span[@id='customer.username.errors']"
     TXT_PASSWORD_ERROR = "//span[@id='customer.password.errors']"
-    TXT_CONFIRMPW_ERROR = "//span[@id='repeatedPassword.errors']"
+    TXT_CONFIRMPW_ERROR = "//span[@id='repeatedPassword.errors']" 

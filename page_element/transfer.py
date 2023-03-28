@@ -1,0 +1,10 @@
+class TransferElements:
+    BTN_OPENNEWACC = "//input[@type ='submit' and @value='Open New Account']"
+    TXT_NEWACCID = "//a[@id='newAccountId']"
+    TXTBOX_AMOUNT = "//input[@id='amount']"
+    DROPDOWN_ACCFROM = "//select[@id='fromAccountId']"
+    DROPDOWN_ACCTO = "//select[@id='toAccountId']"
+    TXTBOX_AMOUNT = "//input[@id='amount']"
+    BTN_TRANSFER = "//input[@type ='submit' and @value='Transfer']"
+    TXT_AVAILABLEAMOUNT_1 = "//*[@id='accountTable']//tbody//tr[1]//td[3]"
+    TXT_AVAILABLEAMOUNT_2 = "//*[@id='accountTable']//tbody//tr[2]//td[3]"

@@ -1,0 +1,16 @@
+class TransactionElements:
+    LINK_AVAILABLEAMOUNT_1 = "//*[@id='accountTable']//tbody//tr[1]//td[1]//a"
+    LINK_AVAILABLEAMOUNT_2 = "//*[@id='accountTable']//tbody//tr[2]//td[1]//a"
+    LINK_TRANSACTION = "//*[@id='transactionTable']//tbody//tr[1]//td[2]//a"
+    TXT_TRANSACTIONID = "//b[text()='Transaction ID:']/parent::td/following-sibling::td"
+    TXT_DATE = "//b[text()='Date:']/parent::td/following-sibling::td"
+    TXT_DESCRIPTION = "//b[text()='Description:']/parent::td/following-sibling::td"
+    TXT_TYPE = "//b[text()='Type:']/parent::td/following-sibling::td"
+    TXT_AMOUNT = "//b[text()='Amount:']/parent::td/following-sibling::td"
+    TXT_CRITERIATRANSACTIONID = "//input[@id='criteria.transactionId']"
+    TXT_CRITERIAONDATE = "//input[@id='criteria.onDate']"
+    BTN_FINDTRANSACTIONBYID = "(//button[@type='submit' and contains(., 'Find Transactions')])[1]"
+    BTN_FINDTRANSACTIONBYDATE = "(//button[@type='submit' and contains(., 'Find Transactions')])[2]"
+    DROPDOWN_ACCOUNTID = "//select[@id='accountId']"
+    TXT_TRANSACTIONDATE = "//*[@id='transactionTable']//tbody//tr//td[text()='{param}']"
+    
