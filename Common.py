@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support.select import Select
 from page_element.register import RegisterPageElements
-import unittest
+from datetime import datetime
 
 class CommonPage():
     def setUp(self):
@@ -46,13 +46,11 @@ class CommonPage():
         btn_login = self.find_element(RegisterPageElements.BTN_LOGIN)
         self.click_button(btn_login)
 
-    # def loginAfterLogout(self,username: str, password: str):
-    #     initial = InitialPage()
-    #     txt_usernamelogin = initial.find_element(self,
-    #             RegisterPageElements.TXTBOX_USERNAMELOGIN)
-    #     initial.input_text(self,txt_usernamelogin, username)
-    #     txt_passwordlogin = initial.find_element(self,
-    #             RegisterPageElements.TXTBOX_PASSWORDLOGIN)
-    #     initial.input_text(self,txt_passwordlogin, password)
-    #     btn_login = initial.find_element(RegisterPageElements.BTN_LOGIN)
-    #     initial.click_button(self,btn_login)
+    def is_date_matching(self,date : str):
+        try:
+            return bool(datetime.strptime(date,"%m-%d-%Y"))
+        except ValueError:
+            return False
+
+    def is_value_inrange(self, value : float, fromValue : float, toValue : float):
+        return (value >= fromValue and value <= toValue)

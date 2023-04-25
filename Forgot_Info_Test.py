@@ -1,7 +1,8 @@
 import unittest
 from page_element.forgot_info import ForgotInfoElements
-from page_element.forgot_info import ForgotPageErrorMessage
+from page_element.forgot_info import ForgotErrorMsgElements
 from page_element.left_menu import LeftMenuElements
+from page_element.error_message import ErrorMessages
 from Common import CommonPage
 import json
 
@@ -31,8 +32,8 @@ class ForgotInfoPage(unittest.TestCase):
         btn_findinfo = common.find_element(ForgotInfoElements.BTN_FINDINFO)
         common.click_button(btn_findinfo)
         except_result = "Username: " + account["Username"] + '\n' + "Password: " + account["Password"]
-        actual_result = common.find_element(ForgotInfoElements.TXT_USERNAMEPW)
-        self.assertEqual(except_result,common.get_text(actual_result))
+        actual_result = common.get_text(common.find_element(ForgotInfoElements.TXT_USERNAMEPW))
+        self.assertEqual(except_result,actual_result)
         common.tearDown()
 
     def test_validation(self):
@@ -43,20 +44,20 @@ class ForgotInfoPage(unittest.TestCase):
         common.click_button(link_forgotinfo)
         btn_findinfo = common.find_element(ForgotInfoElements.BTN_FINDINFO)
         common.click_button(btn_findinfo)
-        txt_firstname_error = common.find_element(ForgotPageErrorMessage.TXT_FIRSTNAME_ERROR)
-        self.assertEqual(common.get_text(txt_firstname_error),'First name is required.')
-        txt_lastname_error = common.find_element(ForgotPageErrorMessage.TXT_LASTNAME_ERROR)
-        self.assertEqual(common.get_text(txt_lastname_error),'Last name is required.')
-        txt_street_error = common.find_element(ForgotPageErrorMessage.TXT_STREET_ERROR)
-        self.assertEqual(common.get_text(txt_street_error),'Address is required.')
-        txt_city_error = common.find_element(ForgotPageErrorMessage.TXT_CITY_ERROR)
-        self.assertEqual(common.get_text(txt_city_error),'City is required.')
-        txt_state_error = common.find_element(ForgotPageErrorMessage.TXT_STATE_ERROR)
-        self.assertEqual(common.get_text(txt_state_error),'State is required.')
-        txt_zipcode_error = common.find_element(ForgotPageErrorMessage.TXT_ZIPCODE_ERROR)
-        self.assertEqual(common.get_text(txt_zipcode_error),'Zip Code is required.')
-        txt_ssn_error = common.find_element(ForgotPageErrorMessage.TXT_SSN_ERROR)
-        self.assertEqual(common.get_text(txt_ssn_error),'Social Security Number is required.')
+        txt_firstname_error = common.find_element(ForgotErrorMsgElements.TXT_FIRSTNAME_ERROR)
+        self.assertEqual(common.get_text(txt_firstname_error),ErrorMessages.FIRSTNAME_ERROR)
+        txt_lastname_error = common.find_element(ForgotErrorMsgElements.TXT_LASTNAME_ERROR)
+        self.assertEqual(common.get_text(txt_lastname_error),ErrorMessages.LASTNAME_ERROR)
+        txt_street_error = common.find_element(ForgotErrorMsgElements.TXT_STREET_ERROR)
+        self.assertEqual(common.get_text(txt_street_error),ErrorMessages.STREET_ERROR)
+        txt_city_error = common.find_element(ForgotErrorMsgElements.TXT_CITY_ERROR)
+        self.assertEqual(common.get_text(txt_city_error),ErrorMessages.CITY_ERROR)
+        txt_state_error = common.find_element(ForgotErrorMsgElements.TXT_STATE_ERROR)
+        self.assertEqual(common.get_text(txt_state_error),ErrorMessages.STATE_ERROR)
+        txt_zipcode_error = common.find_element(ForgotErrorMsgElements.TXT_ZIPCODE_ERROR)
+        self.assertEqual(common.get_text(txt_zipcode_error),ErrorMessages.ZIPCODE_ERROR)
+        txt_ssn_error = common.find_element(ForgotErrorMsgElements.TXT_SSN_ERROR)
+        self.assertEqual(common.get_text(txt_ssn_error),ErrorMessages.SSN_ERROR)
         common.tearDown()
       
 def suite():

@@ -9,8 +9,10 @@ class TransactionElements:
     TXT_AMOUNT = "//b[text()='Amount:']/parent::td/following-sibling::td"
     TXT_CRITERIATRANSACTIONID = "//input[@id='criteria.transactionId']"
     TXT_CRITERIAONDATE = "//input[@id='criteria.onDate']"
+    TXT_CRITERIAFROMDATE = "//input[@id='criteria.fromDate']"
+    TXT_CRITERIATODATE = "//input[@id='criteria.toDate']"
     BTN_FINDTRANSACTIONBYID = "(//button[@type='submit' and contains(., 'Find Transactions')])[1]"
     BTN_FINDTRANSACTIONBYDATE = "(//button[@type='submit' and contains(., 'Find Transactions')])[2]"
+    BTN_FINDTRANSACTIONBYDATERANGE = "(//button[@type='submit' and contains(., 'Find Transactions')])[3]"
     DROPDOWN_ACCOUNTID = "//select[@id='accountId']"
-    TXT_TRANSACTIONDATE = "//*[@id='transactionTable']//tbody//tr//td[text()='{param}']"
-    
+    TXT_TRANSACTIONDATE = "//*[@id='transactionTable']//tbody//tr//td[1]"

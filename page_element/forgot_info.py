@@ -9,7 +9,7 @@ class ForgotInfoElements:
     BTN_FINDINFO = "//input[@type ='submit' and @value='Find My Login Info']"
     TXT_USERNAMEPW = "//div[@id='rightPanel']//p[2]"
     
-class ForgotPageErrorMessage:
+class ForgotErrorMsgElements:
     TXT_FIRSTNAME_ERROR = "//span[@id='firstName.errors']"
     TXT_LASTNAME_ERROR = "//span[@id='lastName.errors']"
     TXT_STREET_ERROR = "//span[@id='address.street.errors']"

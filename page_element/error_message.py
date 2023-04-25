@@ -1,0 +1,12 @@
+class ErrorMessages:
+    FIRSTNAME_ERROR = 'First name is required.'
+    LASTNAME_ERROR = 'Last name is required.'
+    STREET_ERROR = 'Address is required.'
+    CITY_ERROR = 'City is required.'
+    STATE_ERROR = 'State is required.'
+    ZIPCODE_ERROR = 'Zip Code is required.'
+    SSN_ERROR = 'Social Security Number is required.'
+    USERNAME_ERROR = 'Username is required.'
+    PASSWORD_ERROR = 'Password is required.'
+    CONFIRMPW_1_ERROR = 'Password confirmation is required.'
+    CONFIRMPW_2_ERROR = 'Passwords did not match.'

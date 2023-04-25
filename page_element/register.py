@@ -19,7 +19,7 @@ class RegisterPageElements:
     BTN_LOGIN = "//input[@type ='submit' and @value='Log In']"
     TXT_WELCOMELOGIN = "//p[@class='smallText']"
 
-class RegisterPageErrorMessage:
+class RegisterErrorMsgElements:
     TXT_FIRSTNAME_ERROR = "//span[@id='customer.firstName.errors']"
     TXT_LASTNAME_ERROR = "//span[@id='customer.lastName.errors']"
     TXT_STREET_ERROR = "//span[@id='customer.address.street.errors']"

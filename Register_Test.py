@@ -1,6 +1,7 @@
 from page_element.register import RegisterPageElements 
-from page_element.register import RegisterPageErrorMessage
+from page_element.register import RegisterErrorMsgElements
 from page_element.left_menu import LeftMenuElements
+from page_element.error_message import ErrorMessages
 from Common import CommonPage 
 import unittest
 import json
@@ -81,34 +82,34 @@ class RegisterPage(unittest.TestCase):
         common.click_button(link_register)
         btn_register = common.find_element(RegisterPageElements.BTN_REGISTER)
         common.click_button(btn_register)
-        txt_firstname_error = common.find_element(RegisterPageErrorMessage.TXT_FIRSTNAME_ERROR)
-        self.assertEqual(common.get_text(txt_firstname_error),'First name is required.')
-        txt_lastname_error = common.find_element(RegisterPageErrorMessage.TXT_LASTNAME_ERROR)
-        self.assertEqual(common.get_text(txt_lastname_error),'Last name is required.')
-        txt_street_error = common.find_element(RegisterPageErrorMessage.TXT_STREET_ERROR)
-        self.assertEqual(common.get_text(txt_street_error),'Address is required.')
-        txt_city_error = common.find_element(RegisterPageErrorMessage.TXT_CITY_ERROR)
-        self.assertEqual(common.get_text(txt_city_error),'City is required.')
-        txt_state_error = common.find_element(RegisterPageErrorMessage.TXT_STATE_ERROR)
-        self.assertEqual(common.get_text(txt_state_error),'State is required.')
-        txt_zipcode_error = common.find_element(RegisterPageErrorMessage.TXT_ZIPCODE_ERROR)
-        self.assertEqual(common.get_text(txt_zipcode_error),'Zip Code is required.')
-        txt_ssn_error = common.find_element(RegisterPageErrorMessage.TXT_SSN_ERROR)
-        self.assertEqual(common.get_text(txt_ssn_error),'Social Security Number is required.')
-        txt_username_error = common.find_element(RegisterPageErrorMessage.TXT_USERNAME_ERROR)
-        self.assertEqual(common.get_text(txt_username_error),'Username is required.')
-        txt_password_error = common.find_element(RegisterPageErrorMessage.TXT_PASSWORD_ERROR)
-        self.assertEqual(common.get_text(txt_password_error),'Password is required.')
-        txt_confirmpw_error = common.find_element(RegisterPageErrorMessage.TXT_CONFIRMPW_ERROR)
-        self.assertEqual(common.get_text(txt_confirmpw_error),'Password confirmation is required.')
+        txt_firstname_error = common.find_element(RegisterErrorMsgElements.TXT_FIRSTNAME_ERROR)
+        self.assertEqual(common.get_text(txt_firstname_error),ErrorMessages.FIRSTNAME_ERROR)
+        txt_lastname_error = common.find_element(RegisterErrorMsgElements.TXT_LASTNAME_ERROR)
+        self.assertEqual(common.get_text(txt_lastname_error),ErrorMessages.LASTNAME_ERROR)
+        txt_street_error = common.find_element(RegisterErrorMsgElements.TXT_STREET_ERROR)
+        self.assertEqual(common.get_text(txt_street_error),ErrorMessages.STREET_ERROR)
+        txt_city_error = common.find_element(RegisterErrorMsgElements.TXT_CITY_ERROR)
+        self.assertEqual(common.get_text(txt_city_error),ErrorMessages.CITY_ERROR)
+        txt_state_error = common.find_element(RegisterErrorMsgElements.TXT_STATE_ERROR)
+        self.assertEqual(common.get_text(txt_state_error),ErrorMessages.STATE_ERROR)
+        txt_zipcode_error = common.find_element(RegisterErrorMsgElements.TXT_ZIPCODE_ERROR)
+        self.assertEqual(common.get_text(txt_zipcode_error),ErrorMessages.ZIPCODE_ERROR)
+        txt_ssn_error = common.find_element(RegisterErrorMsgElements.TXT_SSN_ERROR)
+        self.assertEqual(common.get_text(txt_ssn_error),ErrorMessages.SSN_ERROR)
+        txt_username_error = common.find_element(RegisterErrorMsgElements.TXT_USERNAME_ERROR)
+        self.assertEqual(common.get_text(txt_username_error),ErrorMessages.USERNAME_ERROR)
+        txt_password_error = common.find_element(RegisterErrorMsgElements.TXT_PASSWORD_ERROR)
+        self.assertEqual(common.get_text(txt_password_error),ErrorMessages.PASSWORD_ERROR)
+        txt_confirmpw_error = common.find_element(RegisterErrorMsgElements.TXT_CONFIRMPW_ERROR)
+        self.assertEqual(common.get_text(txt_confirmpw_error),ErrorMessages.CONFIRMPW_1_ERROR)
 
         txt_password = common.find_element(RegisterPageElements.TXTBOX_PASSWORD)
         common.input_text(txt_password, '123')
         txt_confirmpw = common.find_element(RegisterPageElements.TXTBOX_CONFIRMPW)
         common.input_text(txt_confirmpw, '456')
         common.click_button(common.find_element(RegisterPageElements.BTN_REGISTER))
-        actual_result = common.get_text(common.find_element(RegisterPageErrorMessage.TXT_CONFIRMPW_ERROR))
-        self.assertEqual(actual_result,'Passwords did not match.')
+        actual_result = common.get_text(common.find_element(RegisterErrorMsgElements.TXT_CONFIRMPW_ERROR))
+        self.assertEqual(actual_result,ErrorMessages.CONFIRMPW_2_ERROR)
         common.tearDown()
 
 def suite():
