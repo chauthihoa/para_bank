@@ -18,14 +18,14 @@ class CommonPage():
     def find_elements(self, ele: str):
        return self.drive.find_elements(By.XPATH, ele)
 
-    def input_text(self, ele: WebElement, txt: str):
-        return ele.send_keys(txt)
+    def input_text(self, ele: str, txt: str):
+        return self.find_element(ele).send_keys(txt)
 
-    def click_button(self, ele: WebElement):
-        return ele.click()
+    def click_button(self, ele: str):
+        return self.find_element(ele).click()
     
-    def get_text(self, ele: WebElement):
-        return ele.text
+    def get_text(self, ele: str):
+        return self.find_element(ele).text
     
     def select_option(self, ele: Select, value: str):
         return ele.select_by_visible_text(value)
@@ -37,14 +37,9 @@ class CommonPage():
      
         self.setUp()
         self.open_base_url()
-        txt_usernamelogin = self.find_element(
-                RegisterPageElements.TXTBOX_USERNAMELOGIN)
-        self.input_text(txt_usernamelogin, username)
-        txt_passwordlogin = self.find_element(
-                RegisterPageElements.TXTBOX_PASSWORDLOGIN)
-        self.input_text(txt_passwordlogin, password)
-        btn_login = self.find_element(RegisterPageElements.BTN_LOGIN)
-        self.click_button(btn_login)
+        self.input_text(RegisterPageElements.TXTBOX_USERNAMELOGIN, username)
+        self.input_text(RegisterPageElements.TXTBOX_PASSWORDLOGIN, password)
+        self.click_button(RegisterPageElements.BTN_LOGIN)
 
     def is_date_matching(self,date : str):
         try:

@@ -14,17 +14,11 @@ class TransactionPage(unittest.TestCase):
     def test_findTransactionByID(self):
         common = CommonPage()
         common.login(self.acc_data["Username"], self.acc_data["Password"])
-        link_accountoverview = common.find_element(
-            LeftMenuElements.LINK_ACCOUNTSOVERVIEW)
-        common.click_button(link_accountoverview)
+        common.click_button(LeftMenuElements.LINK_ACCOUNTSOVERVIEW)
         time.sleep(5)
-        link_availableamout_1 = common.find_element(
-            TransactionElements.LINK_AVAILABLEAMOUNT_1)
-        common.click_button(link_availableamout_1)
+        common.click_button(TransactionElements.LINK_AVAILABLEAMOUNT_1)
         time.sleep(5)
-        link_transaction = common.find_element(
-            TransactionElements.LINK_TRANSACTION)
-        common.click_button(link_transaction)
+        common.click_button(TransactionElements.LINK_TRANSACTION)
         txt_transactionid = common.find_element(
             TransactionElements.TXT_TRANSACTIONID)
         expected_transactionid = common.get_text(txt_transactionid)
@@ -37,20 +31,13 @@ class TransactionPage(unittest.TestCase):
         expected_type = common.get_text(txt_type)
         txt_amount = common.find_element(TransactionElements.TXT_AMOUNT)
         expected_amount = common.get_text(txt_amount)
-
-        link_findtransaction = common.find_element(
-            LeftMenuElements.LINK_FINDTRANSACTION)
-        common.click_button(link_findtransaction)
+        common.click_button(LeftMenuElements.LINK_FINDTRANSACTION)
         txt_criteriatransactionid = common.find_element(
             TransactionElements.TXT_CRITERIATRANSACTIONID)
         common.input_text(txt_criteriatransactionid, expected_transactionid)
-        btn_findtransaction = common.find_element(
-            TransactionElements.BTN_FINDTRANSACTIONBYID)
-        common.click_button(btn_findtransaction)
+        common.click_button(TransactionElements.BTN_FINDTRANSACTIONBYID)
         time.sleep(5)
-        link_transaction = common.find_element(
-            TransactionElements.LINK_TRANSACTION)
-        common.click_button(link_transaction)
+        common.click_button(TransactionElements.LINK_TRANSACTION)
         time.sleep(5)
         txt_transactionid = common.find_element(
             TransactionElements.TXT_TRANSACTIONID)
@@ -95,24 +82,19 @@ class TransactionPage(unittest.TestCase):
     def findTransaction(self, fromDate: datetime, toDate: datetime):
         common = CommonPage()
         common.login(self.acc_data["Username"], self.acc_data["Password"])
-        link_accountoverview = common.find_element(
-            LeftMenuElements.LINK_ACCOUNTSOVERVIEW)
-        common.click_button(link_accountoverview)
+        common.click_button(LeftMenuElements.LINK_ACCOUNTSOVERVIEW)
         time.sleep(5)
-        link_availableamout_2 = common.find_element(
-            TransactionElements.LINK_AVAILABLEAMOUNT_2)
-        account = common.get_text(link_availableamout_2)
-        common.click_button(link_availableamout_2)
+        account = common.get_text(common.find_element(TransactionElements.LINK_AVAILABLEAMOUNT_2))
+        common.click_button(TransactionElements.LINK_AVAILABLEAMOUNT_2)
         time.sleep(5)
         txt_transactiondate = common.find_elements(
             TransactionElements.TXT_TRANSACTIONDATE)
         count = 0
         for transactionDateItem in txt_transactiondate:
-            if fromDate <= datetime.strptime(common.get_text(transactionDateItem), "%m-%d-%Y") <= toDate:
-                count = count + 1
-        link_findtransaction = common.find_element(
-            LeftMenuElements.LINK_FINDTRANSACTION)
-        common.click_button(link_findtransaction)
+            if common.is_date_matching(transactionDateItem):
+                if fromDate <= datetime.strptime(common.get_text(transactionDateItem), "%m-%d-%Y") <= toDate:
+                    count += 1
+        common.click_button(LeftMenuElements.LINK_FINDTRANSACTION)
         time.sleep(5)
         dropdown_account = Select(common.find_element(
             TransactionElements.DROPDOWN_ACCOUNTID))
@@ -125,16 +107,13 @@ class TransactionPage(unittest.TestCase):
             TransactionElements.TXT_CRITERIATODATE)
         common.input_text(txt_criteriatransactiontodate,
                           toDate.date().strftime("%m-%d-%Y"))
-        btn_findtransaction = common.find_element(
-            TransactionElements.BTN_FINDTRANSACTIONBYDATERANGE)
-        common.click_button(btn_findtransaction)
+        common.click_button(TransactionElements.BTN_FINDTRANSACTIONBYDATERANGE)
         time.sleep(5)
         txt_transactiondate = common.find_elements(
             TransactionElements.TXT_TRANSACTIONDATE)
         for transactionDateItem in txt_transactiondate:
             print(type(transactionDateItem))
-        actual_numbertransaction = len(txt_transactiondate)
-        self.assertEqual(count, actual_numbertransaction)
+        self.assertEqual(count, len(txt_transactiondate))
         common.tearDown()
 
 
